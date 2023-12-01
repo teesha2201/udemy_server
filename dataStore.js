@@ -1117,6 +1117,7 @@ const home = [
         sub_category:"data_science",
         popular_topic:"deep_learning"
     },
+    // 
 ]
   
 module.exports = {home}
