@@ -1,5 +1,5 @@
 const jwt=require("jsonwebtoken")
-const sycret_key="mern"
+const sycret_key="bsb"
 const auth=((req,res,next)=>{
    const BearerToken= req.headers["authoriation"]
    console.log("bareer..........................", BearerToken )

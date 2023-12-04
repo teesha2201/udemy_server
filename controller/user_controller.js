@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const UserRegister = require("../model/userRegister_model");
-const sycret_key = "mern";
+const sycret_key = "bsb";
 
 const register = async (req, res) => {
 
@@ -21,7 +21,7 @@ const register = async (req, res) => {
       email: data.email,
       password: hashpassword,
       name:data.name,
-      phoneNo:data.phoneNo,
+      
      
     };
   
