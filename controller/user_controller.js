@@ -27,12 +27,12 @@ const register = async (req, res) => {
   
     const response =await UserRegister.create(tempObj);
     console.log(response);
-    const token = jwt.sign({ email: data.email }, sycret_key, { expiresIn: "7d" });
+    // const token = jwt.sign({ email: data.email }, sycret_key, { expiresIn: "7d" });
    
    
     return res.send({
       msg: "user registered successfully",
-      token: token,
+     
     });
   }
  
@@ -45,21 +45,17 @@ const register = async (req, res) => {
 
 const login = async(req, res) => {
     const data = req.body;
-  
+    console.log(data)
       const details =await UserRegister.findOne({email:`${data.email}`});
       if (details) {
         const validate = bcrypt.compareSync(data.password, details.password);
         if (validate) {
-          const token = jwt.sign({ email: data.email }, sycret_key, { expiresIn: "7d" },(err)=>{
-            if(err){
-              res.send("jwt token error");
-             
-            }
-          });
+          const token = jwt.sign({ email: data.email }, sycret_key, { expiresIn: "7d" });
           return res.send({
             msg: "user logged in successfully",
             token: token,
-            name:details.name
+            name:details.name,
+            email:details.email
           });
         } else {
           return res.send({
