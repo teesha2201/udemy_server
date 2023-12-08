@@ -56,9 +56,11 @@ const cartDelete = async (req,res) =>{
   res.send(deletedata);
 }
 const singleCartdelete = async (req,res) =>{
-  const deleteitem = await AddtoCart.findOneAndDelete();
+  const deleteitem = await AddtoCart.deleteOne({id:id});
   res.send(deleteitem);
 }
+
+
 
 module.exports = {
   createData,
