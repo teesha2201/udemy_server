@@ -1,4 +1,4 @@
-const {createData,getData,searchData,addtocart,getaddtocart } = require("../controller/data_controller");
+const {createData,getData,searchData,addtocart,getaddtocart,singleCartdelete } = require("../controller/data_controller");
 const { login, register} = require("../controller/user_controller");
 
 const {LearningCart,LearningCartGet,cartDelete} = require("../controller/data_controller");
@@ -19,6 +19,7 @@ Route.post("/learnercart" , LearningCart);
 Route.get("/learningcartget",LearningCartGet);
 Route.post("/addtocart",addtocart);
 Route.get("/getaddtocart",getaddtocart);
-Route.delete("/cartdelete",cartDelete)
+Route.delete("/cartdelete",cartDelete);
+Route.post("/deleteitem",singleCartdelete)
 
 module.exports = Route;
