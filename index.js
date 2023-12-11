@@ -13,6 +13,7 @@ app.use(express.json());
 app.use(cors({
     origin:"*"
 }))
+//Middleware to parse URL-encoded data
 app.use(express.urlencoded({extended:true
 }))
 
