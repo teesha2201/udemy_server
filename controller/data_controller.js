@@ -4,7 +4,7 @@ const { LearnerCartModel ,AddtoCart }= require("../model/Learner_model")
 
 const createData = async (req, res) => {
   const response = await DataModel.create(home);
-  console.log(response)
+  // console.log(response)
   res.send(response);
 };
 
@@ -16,7 +16,7 @@ const getData = async (req, res) => {
 
 const searchData = async (req, res) => {
   const {page} = req.query
-    console.log(page);
+    // console.log(page);
 
     const queryObj = {}
     if(page){
@@ -56,11 +56,19 @@ const cartDelete = async (req,res) =>{
   res.send(deletedata);
 }
 // const singleCartdelete = async (req,res) =>{
-//   const deleteitem = await AddtoCart.deleteOne({id:id});
+//   const data = req.body;
+//   console.log(data)
+//   const deleteitem = await AddtoCart.findOneAndDelete({id:data.id});
 //   res.send(deleteitem);
 // }
 
-
+const removecart=async(req,res)=>{
+  const id=req.body
+  const deletecart= await AddtoCart.deleteMany({id:id.id})
+  console.log(id)
+  res.send(deletecart)
+  
+}
 
 module.exports = {
   createData,
@@ -71,6 +79,6 @@ module.exports = {
   addtocart,
   getaddtocart,
   cartDelete,
-  // singleCartdelete
+  removecart
  
 };
