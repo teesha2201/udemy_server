@@ -55,10 +55,10 @@ const cartDelete = async (req,res) =>{
   const deletedata = await AddtoCart.deleteMany({});
   res.send(deletedata);
 }
-const singleCartdelete = async (req,res) =>{
-  const deleteitem = await AddtoCart.deleteOne({id:id});
-  res.send(deleteitem);
-}
+// const singleCartdelete = async (req,res) =>{
+//   const deleteitem = await AddtoCart.deleteOne({id:id});
+//   res.send(deleteitem);
+// }
 
 
 
@@ -71,6 +71,6 @@ module.exports = {
   addtocart,
   getaddtocart,
   cartDelete,
-  singleCartdelete
+  // singleCartdelete
  
 };
